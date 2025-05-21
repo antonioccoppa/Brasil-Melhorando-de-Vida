@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brasil Melhorando A Vida</title>
+  <script src="https://cdn.jsdelivr.net/npm/@cardano-foundation/cardano-serialization-lib-browser@9.1.2/cardano_serialization_lib.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { font-family: Arial, sans-serif; background-color: #e6f3e6; }
+    .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+    .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+    .accessibility { font-size: 1.1rem; line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="text-4xl font-bold text-center text-green-800 mb-8">Brasil Melhorando A Vida</h1>
+    <div class="card accessibility">
+      <h2 class="text-2xl font-semibold mb-4">Pesquise um Político</h2>
+      <input id="politicianInput" type="text" placeholder="Digite o nome do político" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-600" aria-label="Nome do político">
+      <button onclick="checkPolitician()" class="bg-green-600 text-white p-3 rounded-lg hover:bg-green-700 w-full">Pesquisar</button>
+      <div id="result" class="mt-4 text-gray-800"></div>
+    </div>
+    <div class="card mt-6 accessibility">
+      <h2 class="text-2xl font-semibold mb-4">Denuncie Corrupção</h2>
+      <textarea id="denunciaInput" placeholder="Descreva a denúncia (ex.: nome do político, fato ocorrido)" class="w-full p-3 mb-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" rows="5" aria-label="Descrição da denúncia"></textarea>
+      <button onclick="submitDenuncia()" class="bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 w-full">Enviar Denúncia</button>
+    </div>
+    <div class="card mt-6 accessibility">
+      <h2 class="text-2xl font-semibold mb-4">Aprenda a Votar Melhor</h2>
+      <p class="text-gray-700">Acesse guias simples para escolher candidatos honestos e entender o processo eleitoral.</p>
+      <a href="#educacao" class="text-blue-600 hover:underline">Saiba mais</a>
+    </div>
+  </div>
+
+  <script>
+    async function connectToCardano() {
+      if (window.cardano) {
+        try {
+          const wallet = await window.cardano.nami.enable();
+          console.log("Conectado à carteira Nami!");
+          return wallet;
+        } catch (error) {
+          console.error("Erro ao conectar à carteira:", error);
+          alert("Erro ao conectar à carteira Cardano. Tente novamente.");
+        }
+      } else {
+        alert("Instale uma carteira Cardano (ex.: Nami ou Eternl) para continuar.");
+      }
+    }
+
+    async function checkPolitician() {
+      const input = document.getElementById("politicianInput").value;
+      const resultDiv = document.getElementById("result");
+      if (!input) {
+        resultDiv.innerHTML = "<p class='text-red-600'>Por favor, digite o nome de um político.</p>";
+        return;
+      }
+      resultDiv.innerHTML = "<p class='text-gray-600'>Buscando informações sobre " + input + "...</p>";
+
+      // Simulação de busca (substituir por API real, ex.: TSE)
+      setTimeout(() => {
+        resultDiv.innerHTML = `
+          <p><strong>${input}</strong>:<br>
+          - Ficha Limpa: <span class="text-green-600">Sim</span> / <span class="text-red-600">Não</span><br>
+          - Processos Judiciais: Nenhum / Em andamento<br>
+          - Votações Recentes: [Dados da blockchain]</p>
+        `;
+      }, 1000);
+    }
+
+    async function submitDenuncia() {
+      const denuncia = document.getElementById("denunciaInput").value;
+      if (!denuncia) {
+        alert("Por favor, descreva a denúncia.");
+        return;
+      }
+      const wallet = await connectToCardano();
+      if (wallet) {
+        // Simulação de envio para a blockchain
+        alert("Denúncia enviada para validação: " + denuncia);
+        // Futuro: implementar Plutus smart contract para validação
+      }
+    }
+  </script>
+</body>
+</html>
