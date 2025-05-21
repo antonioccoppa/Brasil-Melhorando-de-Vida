@@ -10,7 +10,7 @@ Acreditamos que a evolução do Brasil depende de cidadãos bem informados e eng
 ## Funcionalidades
 - **Pesquisa de Políticos**: Veja ficha limpa, processos judiciais e votações.
 - **Denúncias Validadas**: Envie denúncias de corrupção, denúncias de ativismo político para compra de votos e falsas promessas, validadas via blockchain.
-- **Educação Eleitoral**: Guias para escolher candidatos honestos. Mostrando a face o rosto do candidato em quem você pretende votar,  e com o seu rosto visível, dificultando que outros usem nomes diferentes, e assim dando a certeza de que o eleitor não será enganados. 
+- **Educação Eleitoral**: Guias para escolher candidatos honestos. Mostrando a face o rosto do candidato em quem você pretende votar,  e com o seu rosto visível, dificultando que outros usem nomes diferentes, e assim dando a certeza de que os eleitores não serão mais enganados. 
 
 ## Como Testar
 1. Clone o repositório: `git clone https://github.com/seu-usuario/BrasilMelhorandodeVida.git`
