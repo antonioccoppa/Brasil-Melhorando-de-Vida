@@ -1,6 +1,6 @@
 # Como Contribuir para o Brasil Melhorando de Vida
 
-Bem-vindo ao Brasil Melhorando de Vida! Ajude-nos a combater a corrupção:
+Bem-vindo ao Brasil Melhorando de Vida! Ajude-nos a combater a corrupção e ensinando o povo a votar em um governante honesto.
 
 - **Desenvolvimento**: Código para interface e Cardano.
 - **Design**: Folhetos, logos, vídeos.
