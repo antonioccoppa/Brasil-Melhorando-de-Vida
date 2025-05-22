@@ -12,3 +12,6 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./fonte
+          # Adicione estas opções para evitar conflitos
+          force_orphan: true
+          publish_branch: gh-pages
